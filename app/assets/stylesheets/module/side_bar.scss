@@ -1,0 +1,45 @@
+.side-bar{
+  box-sizing:border-box;
+  // widthやheightを指定するときはboxsizingを使用する
+  width:300px;
+  float:left;
+  background-color:$navy;
+  .header{
+    font-weight:bold;
+    margin-bottom:15px;
+    margin-left:25px;
+    line-height:100px;
+    height:100px;
+      &__name{
+        display:inline-block;
+        font-size:20px;
+        color:$white;
+      }
+      &__lists{
+        float:right;
+        li{
+          display:inline-block;
+        }
+        .icon{
+          font-size:25px;
+          margin-right:15px;
+          color:$white;
+        }
+      }
+  }
+  .groups{
+    height:calc(100vh - 100px);
+    .group{
+      height:100px;
+      color:$white;
+      .group__name{
+        font-size:18px;
+      }
+      .group__message{
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
+

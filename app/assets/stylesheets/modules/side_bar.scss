@@ -3,11 +3,12 @@
   // widthやheightを指定するときはboxsizingを使用する
   width:300px;
   float:left;
-  background-color:$navy;
+  background-color:#003366;
   .header{
+    background-color:$navy;
     font-weight:bold;
     margin-bottom:15px;
-    margin-left:25px;
+    padding-left:25px;
     line-height:100px;
     height:100px;
       &__name{

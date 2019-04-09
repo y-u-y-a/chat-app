@@ -4,6 +4,7 @@
 @import "common";
 @import "mixin/mixin";
 @import "config/color";
-@import "module/wrapper";
-@import "module/side_bar";
-@import "module/chat";
+@import "modules/wrapper";
+@import "modules/side_bar";
+@import "modules/chat";
+@import "modules/user";

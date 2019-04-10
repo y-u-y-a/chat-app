@@ -14,20 +14,11 @@
             = fa_icon "cog", class: "icon"
 
   .groups
-    .group
-      .group__name
-        名古屋46期
-      .group__message
-        メルカリ終わったー！
+    - current_user.groups.each do|group|
+      = link_to group_messages_path(group.id) do
+        .group
+          .group__name
+            = group.name
+          .group__message
+            メッセージはまだありません
 
-    .group
-      .group__name
-        名古屋46期
-      .group__message
-        メルカリ終わったー！
-
-    .group
-      .group__name
-        名古屋46期
-      .group__message
-        メルカリ終わったー！

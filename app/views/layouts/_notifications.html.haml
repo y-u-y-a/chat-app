@@ -1,0 +1,5 @@
+.notification
+  - flash.each do |key, value|
+    = content_tag :div, value, class: key
+
+// content_tagとは、タグを動的に生成する、第一引数に要素名、第二引数に要素の内容を持ってくる！

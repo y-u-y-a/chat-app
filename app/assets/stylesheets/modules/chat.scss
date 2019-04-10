@@ -26,7 +26,7 @@
     .right-header{
       margin-right:10px;
       text-align:center;
-      border: solid 1px $blue;
+      border: solid 1px $light-blue;
       // そろえるためにセットで使う!!!!!!!
       line-height:50px;
       height:50px;
@@ -103,7 +103,7 @@
       width:90px;
       height:50px;
       color:$white;
-      background-color:$blue;
+      background-color:$light-blue;
       cursor:pointer;
     }
   }

@@ -41,6 +41,8 @@
   }
 
   .messages{
+    // ボックス内がスクロールできる状態になる
+    overflow:scroll;
     // 真ん中で高さを指定する
     height:calc(100vh - 100px - 100px);
     padding:0 40px;
@@ -51,6 +53,7 @@
         padding-top: 15px;
         &__name{
           display:inline-block;
+          font-weight:bold;
           font-size:20px;
         }
         &__date{
@@ -74,6 +77,8 @@
     bottom:0;
     background-color:$dark-gray;
     &__input{
+      padding-left:10px;
+      font-size:18px;
       float:left;
       border:none;
       width:calc(100% - 150px);

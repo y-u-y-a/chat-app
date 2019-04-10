@@ -34,7 +34,6 @@
       .chat-group-form__field--left
         = f.label :チャットメンバー, class: "chat-group-form__label"
       .chat-group-form__field--right
-
         = f.collection_check_boxes :user_ids, User.all, :id, :nickname
         / この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
         /

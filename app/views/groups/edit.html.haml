@@ -1,15 +1,14 @@
 .chat-group-form
-  %h1 新規チャットグループ
-  = form_for(@group, class: "new_chat_group", method: :POST) do |f|
+  %h1 チャットグループ編集
 
-
-
+  = form_for(@group, method: :PATCH, class: "edit_chat_group") do |f|
     - if @group.errors.any?
       .chat-group-form__errors
-        %h2= "#{@group.errors.full_messages.count}件のエラーが発生しました！"
+        %h2= "#{@group.errors.full_messages.count}件のエラーがありました！"
         %ul
           - @group.errors.full_messages.each do |message|
             %li= message
+
 
 
 
@@ -33,38 +32,8 @@
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         = f.label :チャットメンバー, class: "chat-group-form__label"
-      .chat-group-form__field--right
-
-        = f.collection_check_boxes :user_ids, User.all, :id, :nickname
-        / この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
-        /
-          <div id='chat-group-users'>
-          <div class='chat-group-user clearfix' id='chat-group-user-22'>
-          <input name='chat_group[user_ids][]' type='hidden' value='22'>
-          <p class='chat-group-user__name'>seo_kyohei</p>
-          </div>
-          </div>
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
       .chat-group-form__field--right
-        = f.submit :作成する, class: "chat-group-form__action-btn"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        / グループ作成機能の追加時はここにcollection_check_boxesの記述を入れてください
+        = f.submit :編集する, class: "chat-group-form__action-btn"

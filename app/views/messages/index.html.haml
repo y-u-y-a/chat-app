@@ -6,7 +6,7 @@
     .header
       .left-header
         .left-header__name
-          メルカリ46期
+          = @group.name
         %ul.left-header__members
           %li メンバー：
           %li yuya
@@ -14,7 +14,8 @@
           %li neko
       .right-header
         .right-header__edit
-          = link_to "編集", "#", class: "btn"
+          = link_to "編集", edit_group_path(@group), class: "btn"
+          //@groupはmessagesコントローラで定義した@groupである
 
 
     .messages

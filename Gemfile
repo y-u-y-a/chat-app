@@ -64,8 +64,9 @@ gem 'pry-rails'
 gem 'devise'
 gem 'haml-rails'
 gem 'erb2haml'
-gem 'carrierwave'
-gem 'fog-aws'
-gem 'mini_magick'
 gem 'font-awesome-rails'
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog-aws'
+
 

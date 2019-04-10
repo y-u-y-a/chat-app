@@ -1,6 +1,6 @@
 .chat-group-form
   %h1 新規チャットグループ
-  = form_for(@group, class: "new_chat_group", method: :POST) do |f|
+  = form_for(@group, method: :POST, html: {class: "new_chat_group"}) do |f|
 
 
 
@@ -34,7 +34,6 @@
       .chat-group-form__field--left
         = f.label :チャットメンバー, class: "chat-group-form__label"
       .chat-group-form__field--right
-
         = f.collection_check_boxes :user_ids, User.all, :id, :nickname
         / この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
         /
@@ -48,23 +47,3 @@
       .chat-group-form__field--left
       .chat-group-form__field--right
         = f.submit :作成する, class: "chat-group-form__action-btn"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

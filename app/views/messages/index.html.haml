@@ -9,9 +9,12 @@
           = @group.name
         %ul.left-header__members
           %li メンバー：
-          %li yuya
-          %li kazu
-          %li neko
+          %li
+            = current_user.nickname
+          - @group.users.each do |user|
+            %li
+              = user.nickname unless user == current_user
+
       .right-header
         .right-header__edit
           = link_to "編集", edit_group_path(@group), class: "btn"
@@ -19,44 +22,29 @@
 
 
     .messages
-      .message
-        .message-top
-          .message-top__name
-            yuya
-          .message-top__date
-            2019/2/11
-        .message-bottom
-          .message-bottom__text
-            頑張っていますかー
-
-      .message
-        .message-top
-          .message-top__name
-            yuya
-          .message-top__date
-            2019/2/11
-        .message-bottom
-          .message-bottom__text
-            頑張っていますかー
-
-      .message
-        .message-top
-          .message-top__name
-            yuya
-          .message-top__date
-            2019/2/11
-        .message-bottom
-          .message-bottom__text
-            頑張っていますかー
+      - @messages.each do |message|
+        .message
+          .message-top
+            .message-top__name
+              = message.user.nickname
+            .message-top__date
+              = message.created_at.strftime("%Y/%m/%d %H:%M")
+          .message-bottom
+            - if message.content.present?
+              .message-bottom__text
+                = message.content
+            = image_tag message.image.url, class: "message-bottom__image" if message.image.present?
 
 
-    %form.message-form
-      %input.message-form__input
+
+    = form_for([@group, @message], method: :POST, html: {class: "message-form"}) do |f|
+      = f.text_field :content, placeholder: "Type a Message", class: "message-form__input"
       .message-form__mask
-        %label
+        = f.label :image do
           = fa_icon "picture-o", class: "icon"
-          %input.hidden{type: "file"}
-      %input.message-form__submit{type: :submit, value: "送信"}
+          = f.file_field :image, class: "hidden"
+      = f.submit :送信, class: "message-form__submit"
+
 
 
 

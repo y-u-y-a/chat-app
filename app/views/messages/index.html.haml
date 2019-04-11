@@ -37,33 +37,10 @@
 
 
 
-    = form_for([@group, @message], method: :POST, html: {class: "message-form"}) do |f|
+    = form_for([@group, @message], method: :POST, html: {class: "message-form", id: "message-form"}) do |f|
       = f.text_field :content, placeholder: "Type a Message", class: "message-form__input"
       .message-form__mask
         = f.label :image do
           = fa_icon "picture-o", class: "icon"
           = f.file_field :image, class: "hidden"
       = f.submit :送信, class: "message-form__submit"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -2,13 +2,15 @@
   %h1 チャットグループ編集
 
   = form_for(@group, method: :PATCH, html: {class: "edit_chat_group"}) do |f|
+
+
+
     - if @group.errors.any?
       .chat-group-form__errors
         %h2= "#{@group.errors.full_messages.count}件のエラーがありました！"
         %ul
           - @group.errors.full_messages.each do |message|
             %li= message
-
 
 
 
@@ -32,8 +34,12 @@
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         = f.label :チャットメンバー, class: "chat-group-form__label"
+      .chat-group-form__field--right
+        = f.collection_check_boxes :user_ids, User.all, :id, :nickname
+
+
+
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
       .chat-group-form__field--right
-        = f.collection_check_boxes :user_ids, User.all, :id, :nickname
         = f.submit :編集する, class: "chat-group-form__action-btn"

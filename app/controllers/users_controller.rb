@@ -1,5 +1,16 @@
 class UsersController < ApplicationController
 
+  # インクリメンタルサーチの検索一覧
+  def index
+    if params[:keyword] != ""
+      @users = User.where("nickname LIKE ?", "%#{params[:keyword]}%")
+    end
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   # user編集ページへ(ログアウト)
   def edit
   end

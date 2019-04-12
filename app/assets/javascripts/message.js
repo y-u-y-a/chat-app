@@ -20,15 +20,16 @@ $(document).ready(function(){
                 </div>`
     return html;
   }
-
-  // 1.フォームが送信されたら、第一引数にイベント名、第二引数に発火した後の処理(関数)
+// ⬇︎メッセージ機能の非同期化
+//1.フォームが送信されたら、第一引数にイベント名、第二引数に発火した後の処理(関数)
   $("#message-form").on("submit", function(e){
     e.preventDefault();
-  // 2.イベントが発火したら、ajaxを利用してmessage#createが動くようにする
+// 2.イベントが発火したら、ajaxを利用してmessage#createが動くようにする
     // action属性の値はURL、検証で確認する
     var url = $(this).attr("action")
     // フォームに入力されたデータを取得する
     var formData = new FormData(this);
+// 3.ajax通信を開始する
     $.ajax({
       url: url,
       type: "POST",

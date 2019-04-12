@@ -1,0 +1,53 @@
+= form_for(@group, html: {class: "edit_chat_group"}) do |f|
+
+
+  - if @group.errors.any?
+    .chat-group-form__errors
+      %h2= "#{@group.errors.full_messages.count}件のエラーがありました！"
+      %ul
+        - @group.errors.full_messages.each do |message|
+          %li= message
+
+
+  // グループ名の入力ボックス
+  .chat-group-form__field
+    .chat-group-form__field--left
+      = f.label :グループ名, class: "chat-group-form__label"
+    .chat-group-form__field--right
+      = f.text_field :name, placeholder: "グループ名を入力してください", class: "chat-group-form__input", id: "chat_group_name"
+
+
+  // ユーザー名の検索ボックス
+  .chat-group-form__field
+    .chat-group-form__field--left
+      = f.label :チャットメンバーを追加, class: "chat-group-form__label"
+    .chat-group-form__field--right
+      .chat-group-form__search
+        %input.chat-group-form__input#user-search-field{placeholder: "追加したいユーザー名を入力してください", type: "text"}
+
+
+      // メンバー検索結果(追加)
+      #user-search-result
+
+
+  // メンバー一覧(削除)
+  .chat-group-form__field
+    .chat-group-form__field--left
+      = f.label :チャットメンバー, class: "chat-group-form__label"
+
+    .chat-group-form__field--right
+      #chat-group-users
+
+        - @group.users.each do |user|
+          .chat-group-user{id: "chat-group-user-#{user.id}"}
+            %input{type: "hidden", name: "group[user_ids][]", value: user.id}
+            %p.chat-group-user__nickname
+              = user.nickname
+            - if user.id != current_user.id
+              %a.user-search-remove.chat-group-user__btn.chat-group-user__btn--remove 削除
+
+
+  .chat-group-form__field
+    .chat-group-form__field--left
+    .chat-group-form__field--right
+      = f.submit class: "chat-group-form__action-btn"

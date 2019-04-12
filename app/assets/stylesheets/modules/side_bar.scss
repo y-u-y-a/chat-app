@@ -29,6 +29,7 @@
       }
   }
   .groups{
+    overflow:scroll;
     height:calc(100vh - 100px);
     .group{
       height:100px;

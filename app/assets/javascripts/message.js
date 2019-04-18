@@ -42,10 +42,10 @@ $(document).ready(function(){
     .done(function(message){
       var html = buildSendMessageHTML(message);
       $(".messages").append(html);
-      // 送信後に入力部分を消去する、[0]がないとエラーになる！
+      // 送信後に入力部分をリセットする、[0]がないとエラーになる！
       $("form")[0].reset();
-      // 連続クリック防止を無効にする
-      $("submit").prop("disabled", false);
+      // 連続クリック防止を無効にする(連続投稿を可能にする)
+      $("#submit").prop("disabled", false);
       // 最下部に自動スクロール
       $(".messages").animate({scrollTop:$(".messages")[0].scrollHeight}, "fast");
     })

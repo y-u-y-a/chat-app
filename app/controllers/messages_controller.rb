@@ -7,6 +7,11 @@ class MessagesController < ApplicationController
     @message = Message.new
     # グループで投稿されたメッセージ全てが格納されている
     @messages = @group.messages.includes(:user)
+
+    respond_to do |format|
+      format.html
+      format.json { @new_messages = @messages.where("id > ?", params[:id])} # 取得してきたdata-message-id属性のmessagesテーブルのidよりも大きい場合代入する
+    end
   end
 
   def create

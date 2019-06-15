@@ -16,9 +16,7 @@
               = user.nickname unless user == current_user
 
       .right-header
-        .right-header__edit
-          = link_to "編集", edit_group_path(@group), class: "btn"
-          //@groupはmessagesコントローラで定義した@groupである
+        = link_to "編集", edit_group_path(@group), class: "right-header__edit"
 
 
     .messages

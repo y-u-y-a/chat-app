@@ -5,16 +5,15 @@
   float:left;
   background-color:#003366;
   .header{
-    background-color:$navy;
-    font-weight:bold;
-    margin-bottom:15px;
-    padding-left:25px;
-    line-height:100px;
     height:100px;
+    line-height:100px;
+    padding:0 15px 0 30px;
+    font-weight:bold;
+    background-color:$navy;
       &__name{
-        display:inline-block;
         font-size:20px;
         color:$white;
+        display:inline-block;
       }
       &__lists{
         float:right;
@@ -22,15 +21,16 @@
           display:inline-block;
         }
         .icon{
-          font-size:25px;
           margin-right:15px;
+          font-size:25px;
           color:$white;
         }
       }
   }
   .groups{
-    overflow:scroll;
     height:calc(100vh - 100px);
+    padding:30px 30px 0;
+    overflow:scroll;
     .group{
       height:100px;
       color:$white;

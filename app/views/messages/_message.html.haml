@@ -1,0 +1,12 @@
+- @messages.each do |message|
+  .message{"data-message_id": message.id}
+    .message-top
+      .message-top__name
+        = message.user.nickname
+      .message-top__date
+        = message.created_at.strftime("%Y/%m/%d %H:%M")
+    .message-bottom
+      - if message.content.present?
+        .message-bottom__text
+          = message.content
+      = image_tag message.image.url, class: "message-bottom__image" if message.image.present?
